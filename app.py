@@ -28,6 +28,41 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
 .search-rotate { display:inline-flex; flex-direction:column; vertical-align:bottom; height:1.5em; overflow:hidden; color:#e83e8c; }
 .search-rotate span { display:block; height:1.5em; line-height:1.5em; }
 .food-photo-slot { width:154px; height:154px; margin:12px auto 18px; border-radius:50%; background:radial-gradient(circle,#fffaf0 0 58%,#f3d89b 59% 64%,#176b3a 65% 69%,#fff 70%); display:flex; align-items:center; justify-content:center; font-size:4rem; box-shadow:0 4px 14px rgba(0,0,0,.12); }
+
+@media (max-width: 768px) {
+  section[data-testid="stSidebar"] { display: none !important; }
+  div[data-testid="stRadio"] {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 999999 !important;
+    background: #ffffff !important;
+    padding: 9px 5px calc(9px + env(safe-area-inset-bottom)) 5px !important;
+    border-top: 2px solid #d8b36a !important;
+    box-shadow: 0 -3px 14px rgba(0,0,0,.12) !important;
+  }
+  div[data-testid="stRadio"] > label { display: none !important; }
+  div[data-testid="stRadio"] div[role="radiogroup"] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-around !important;
+    gap: 2px !important;
+  }
+  div[data-testid="stRadio"] div[role="radiogroup"] label {
+    flex: 1 1 20% !important;
+    justify-content: center !important;
+    padding: 5px 1px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+  div[data-testid="stRadio"] div[role="radiogroup"] label p {
+    font-size: 10px !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+  }
+  .block-container { padding-bottom: 100px !important; }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -248,7 +283,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.sidebar.title("🚌 FOOD BUS")
-page = st.sidebar.radio("Navigation", ["Home", "Food Menu", "My Cart", "Mess Membership", "My Orders"])
+page = st.radio(
+    "Navigation",
+    ["🏠 Home", "🍔 Food Menu", "🛒 My Cart", "🍱 Mess Membership", "📦 My Orders"],
+    horizontal=True,
+    label_visibility="collapsed",
+    key="main_navigation"
+)
+page = page.split(" ", 1)[1]
 
 if page == "Home":
     st.markdown("""
