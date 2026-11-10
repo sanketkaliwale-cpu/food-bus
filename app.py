@@ -18,9 +18,63 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
  box-shadow:0 3px 12px rgba(30,80,45,.07);
 }
 div[data-testid="stTextInput"] input { border-radius:12px; }
-.hero { background:linear-gradient(110deg,#126b39,#36a765); padding:26px; border-radius:20px; color:white; margin-bottom:16px; }
-.hero h1 { color:white; margin:0; }
-.hero p { color:#f0fff4; margin-bottom:0; }
+.hero {
+  position:relative;
+  box-sizing:border-box;
+  width:100%;
+  min-height:150px;
+  overflow:visible;
+  background:linear-gradient(110deg,#0f5b32 0%,#21834a 55%,#36a765 100%);
+  padding:30px 28px;
+  border:3px double #e7c779;
+  outline:1px solid rgba(255,255,255,.55);
+  outline-offset:-9px;
+  border-radius:20px;
+  color:white;
+  margin:0 0 18px 0;
+  box-shadow:0 5px 18px rgba(13,75,40,.16);
+}
+.hero::before, .hero::after {
+  position:absolute;
+  color:#f5d98f;
+  font-size:23px;
+  line-height:1;
+  pointer-events:none;
+}
+.hero::before { content:"❖  ✦  ❖"; top:12px; left:20px; letter-spacing:5px; }
+.hero::after { content:"❖  ✦  ❖"; bottom:12px; right:20px; letter-spacing:5px; }
+.hero h1 {
+  color:#fff !important;
+  display:block;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  margin:12px 0 8px 0 !important;
+  padding:0 4px;
+  font-size:clamp(2rem,5vw,3.35rem) !important;
+  line-height:1.2 !important;
+  font-weight:900 !important;
+  letter-spacing:1.5px;
+  white-space:normal !important;
+  overflow:visible !important;
+  overflow-wrap:normal;
+  text-align:center;
+  text-shadow:0 2px 3px rgba(0,0,0,.18);
+}
+.hero p {
+  color:#f7f2df !important;
+  margin:0 0 8px 0 !important;
+  text-align:center;
+  font-size:1rem;
+  letter-spacing:.3px;
+}
+@media (max-width: 480px) {
+  .hero { min-height:132px; padding:25px 14px; border-radius:16px; }
+  .hero::before { top:9px; left:12px; font-size:17px; }
+  .hero::after { bottom:9px; right:12px; font-size:17px; }
+  .hero h1 { font-size:clamp(1.8rem,9vw,2.5rem) !important; letter-spacing:1px; }
+  .hero p { font-size:.85rem; }
+}
 .ad-strip { overflow:hidden; white-space:nowrap; background:#fff4d6; border:2px solid #bd8731; border-radius:14px; padding:11px 0; margin:0 0 20px 0; color:#155b34; font-weight:800; }
 .ad-strip span { display:inline-block; padding-left:100%; animation:adscroll 27s linear infinite; }
 @keyframes adscroll { from { transform:translateX(0); } to { transform:translateX(-100%); } }
