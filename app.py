@@ -3,9 +3,7 @@ from datetime import datetime
 
 # ---------------- PAGE SETTINGS ----------------
 
-st.set_page_config(
-    page_title="FOOD BUS",
-    page_icon="🍔",
+st.image("food_bus_logo.png", width=250)
     layout="wide"
 )
 
