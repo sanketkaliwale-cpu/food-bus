@@ -26,8 +26,7 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
 @keyframes adscroll { from { transform:translateX(0); } to { transform:translateX(-100%); } }
 .search-hint { color:#176b3a; font-weight:800; margin:4px 0 8px 2px; }
 .search-rotate { display:inline-flex; flex-direction:column; vertical-align:bottom; height:1.5em; overflow:hidden; color:#e83e8c; }
-.search-rotate span { display:block; height:1.5em; line-height:1.5em; animation:foodscroll 54s steps(27) infinite; }
-@keyframes foodscroll { to { transform:translateY(-40.5em); } }
+.search-rotate span { display:block; height:1.5em; line-height:1.5em; }
 .food-photo-slot { width:154px; height:154px; margin:12px auto 18px; border-radius:50%; background:radial-gradient(circle,#fffaf0 0 58%,#f3d89b 59% 64%,#176b3a 65% 69%,#fff 70%); display:flex; align-items:center; justify-content:center; font-size:4rem; box-shadow:0 4px 14px rgba(0,0,0,.12); }
 </style>
 """, unsafe_allow_html=True)
@@ -85,6 +84,107 @@ menu = [
     {"name":"Ice Cream","category":"Desserts","price":49,"description":"Creamy ice cream","emoji":"🍨"},
     {"name":"Gulab Jamun","category":"Desserts","price":30,"description":"Traditional sweet treat","emoji":"🍮"},
     {"name":"Jalebi","category":"Desserts","price":35,"description":"Crispy syrupy jalebi","emoji":"🍥"},
+    {"name":"Paneer Masala","category":"Punjabi","price":95,"description":"Spicy paneer masala","emoji":"🍛"},
+    {"name":"Palak Paneer","category":"Punjabi","price":99,"description":"Paneer in creamy spinach gravy","emoji":"🥬"},
+    {"name":"Shahi Paneer","category":"Punjabi","price":99,"description":"Rich shahi-style paneer curry","emoji":"🍛"},
+    {"name":"Kadai Paneer","category":"Punjabi","price":99,"description":"Paneer tossed with capsicum and spices","emoji":"🍲"},
+    {"name":"Paneer Bhurji","category":"Punjabi","price":89,"description":"Spiced scrambled paneer","emoji":"🍳"},
+    {"name":"Paneer Tikka","category":"Punjabi","price":99,"description":"Tandoori-style paneer bites","emoji":"🍢"},
+    {"name":"Chole Bhature","category":"North Indian","price":90,"description":"Spiced chickpeas with bhature","emoji":"🫓"},
+    {"name":"Rajma Chawal","category":"North Indian","price":90,"description":"Rajma served with rice","emoji":"🍚"},
+    {"name":"Dal Khichdi","category":"North Indian","price":75,"description":"Comforting lentil and rice khichdi","emoji":"🍲"},
+    {"name":"Aloo Paratha","category":"North Indian","price":60,"description":"Stuffed potato paratha","emoji":"🫓"},
+    {"name":"Paneer Paratha","category":"North Indian","price":85,"description":"Stuffed paneer paratha","emoji":"🫓"},
+    {"name":"Gobi Paratha","category":"North Indian","price":65,"description":"Stuffed cauliflower paratha","emoji":"🫓"},
+    {"name":"Methi Paratha","category":"North Indian","price":55,"description":"Fenugreek paratha","emoji":"🫓"},
+    {"name":"Mix Veg Paratha","category":"North Indian","price":75,"description":"Mixed vegetable stuffed paratha","emoji":"🫓"},
+    {"name":"Plain Paratha","category":"North Indian","price":35,"description":"Layered plain paratha","emoji":"🫓"},
+    {"name":"Veg Sandwich","category":"Sandwich","price":50,"description":"Fresh vegetable sandwich","emoji":"🥪"},
+    {"name":"Cheese Sandwich","category":"Sandwich","price":70,"description":"Grilled cheese sandwich","emoji":"🥪"},
+    {"name":"Bombay Sandwich","category":"Sandwich","price":65,"description":"Mumbai-style chutney sandwich","emoji":"🥪"},
+    {"name":"Club Sandwich","category":"Sandwich","price":95,"description":"Layered café-style sandwich","emoji":"🥪"},
+    {"name":"Paneer Sandwich","category":"Sandwich","price":85,"description":"Paneer-filled toasted sandwich","emoji":"🥪"},
+    {"name":"Grilled Veg Sandwich","category":"Sandwich","price":70,"description":"Grilled vegetable sandwich","emoji":"🥪"},
+    {"name":"Cheese Toast","category":"Sandwich","price":55,"description":"Crispy cheese toast","emoji":"🍞"},
+    {"name":"Rava Dosa","category":"South Indian","price":85,"description":"Crispy semolina dosa","emoji":"🥞"},
+    {"name":"Mysore Masala Dosa","category":"South Indian","price":99,"description":"Mysore chutney masala dosa","emoji":"🥞"},
+    {"name":"Onion Dosa","category":"South Indian","price":85,"description":"Dosa topped with onion","emoji":"🥞"},
+    {"name":"Paneer Dosa","category":"South Indian","price":99,"description":"Dosa filled with paneer","emoji":"🥞"},
+    {"name":"Set Dosa","category":"South Indian","price":75,"description":"Soft set dosa with chutney","emoji":"🥞"},
+    {"name":"Rava Idli","category":"South Indian","price":60,"description":"Steamed semolina idli","emoji":"🥣"},
+    {"name":"Podi Idli","category":"South Indian","price":65,"description":"Idli tossed in podi masala","emoji":"🥣"},
+    {"name":"Thatte Idli","category":"South Indian","price":65,"description":"Karnataka-style plate idli","emoji":"🥣"},
+    {"name":"Appam","category":"Kerala","price":70,"description":"Soft Kerala-style appam","emoji":"🥞"},
+    {"name":"Puttu Kadala","category":"Kerala","price":90,"description":"Steamed puttu with chickpea curry","emoji":"🍛"},
+    {"name":"Pazham Pori","category":"Kerala","price":40,"description":"Kerala banana fritters","emoji":"🍌"},
+    {"name":"Medu Vada Sambar","category":"South Indian","price":60,"description":"Medu vada served with sambar","emoji":"🍩"},
+    {"name":"Pesarattu","category":"Andhra","price":80,"description":"Andhra-style green gram dosa","emoji":"🥞"},
+    {"name":"Mirchi Bajji","category":"Andhra","price":35,"description":"Batter-fried chilli snack","emoji":"🌶️"},
+    {"name":"Punugulu","category":"Andhra","price":45,"description":"Crispy Andhra fritters","emoji":"🍘"},
+    {"name":"Ragda Pattice","category":"Maharashtra","price":60,"description":"Potato patties with ragda","emoji":"🥔"},
+    {"name":"Kothimbir Vadi","category":"Maharashtra","price":45,"description":"Coriander gram-flour bites","emoji":"🍘"},
+    {"name":"Thalipeeth","category":"Maharashtra","price":55,"description":"Multigrain Maharashtrian flatbread","emoji":"🫓"},
+    {"name":"Bhakarwadi","category":"Maharashtra","price":35,"description":"Crispy spiced spiral snack","emoji":"🥨"},
+    {"name":"Puran Poli","category":"Maharashtra","price":60,"description":"Sweet lentil-stuffed flatbread","emoji":"🫓"},
+    {"name":"Zunka Bhakar","category":"Maharashtra","price":75,"description":"Traditional zunka with bhakri","emoji":"🍛"},
+    {"name":"Appe / Paniyaram","category":"South Indian","price":60,"description":"Savory rice-lentil dumplings","emoji":"🥘"},
+    {"name":"Handvo","category":"Gujarati","price":65,"description":"Gujarati savory lentil cake","emoji":"🍰"},
+    {"name":"Sev Khamani","category":"Gujarati","price":50,"description":"Crumbled khaman with sev","emoji":"🟨"},
+    {"name":"Lilva Kachori","category":"Gujarati","price":45,"description":"Gujarati green-pea kachori","emoji":"🥟"},
+    {"name":"Khakhra","category":"Gujarati","price":35,"description":"Crispy Gujarati flatbread snack","emoji":"🫓"},
+    {"name":"Dal Dhokli","category":"Gujarati","price":85,"description":"Wheat dumplings in lentil curry","emoji":"🍲"},
+    {"name":"Gujarati Kadhi Khichdi","category":"Gujarati","price":90,"description":"Kadhi served with khichdi","emoji":"🍚"},
+    {"name":"Rajasthani Pyaz Kachori","category":"Rajasthani","price":45,"description":"Onion-filled crispy kachori","emoji":"🥟"},
+    {"name":"Dal Baati Churma","category":"Rajasthani","price":99,"description":"Rajasthani classic platter","emoji":"🍛"},
+    {"name":"Mirchi Vada","category":"Rajasthani","price":40,"description":"Stuffed and fried chilli","emoji":"🌶️"},
+    {"name":"Ghewar","category":"Rajasthani","price":65,"description":"Traditional Rajasthani sweet","emoji":"🍯"},
+    {"name":"Pyaaz Paratha","category":"North Indian","price":65,"description":"Onion-stuffed paratha","emoji":"🫓"},
+    {"name":"Bedmi Puri","category":"North Indian","price":70,"description":"Spiced lentil puri","emoji":"🫓"},
+    {"name":"Aloo Puri","category":"North Indian","price":70,"description":"Potato curry with puri","emoji":"🍛"},
+    {"name":"Papdi Chaat","category":"Chaat","price":50,"description":"Crispy papdi with chutneys","emoji":"🥗"},
+    {"name":"Dahi Puri","category":"Chaat","price":50,"description":"Puris filled with yogurt and chutneys","emoji":"🥣"},
+    {"name":"Dahi Bhalla","category":"Chaat","price":60,"description":"Lentil dumplings with yogurt","emoji":"🥣"},
+    {"name":"Aloo Chaat","category":"Chaat","price":45,"description":"Tangy spiced potato chaat","emoji":"🥔"},
+    {"name":"Basket Chaat","category":"Chaat","price":75,"description":"Crispy edible basket chaat","emoji":"🥗"},
+    {"name":"Ram Ladoo","category":"Chaat","price":45,"description":"Delhi-style lentil fritters","emoji":"🍘"},
+    {"name":"Palak Chaat","category":"Chaat","price":60,"description":"Crispy spinach chaat","emoji":"🥬"},
+    {"name":"Chana Chaat","category":"Chaat","price":50,"description":"Tangy chickpea chaat","emoji":"🥗"},
+    {"name":"Jhal Muri","category":"Bengali","price":40,"description":"Kolkata-style puffed rice snack","emoji":"🥗"},
+    {"name":"Kathi Roll","category":"Kolkata","price":85,"description":"Street-style vegetable kathi roll","emoji":"🌯"},
+    {"name":"Puchka","category":"Bengali","price":45,"description":"Bengali-style pani puri","emoji":"🥣"},
+    {"name":"Ghugni Chaat","category":"Bengali","price":50,"description":"Yellow-pea curry snack","emoji":"🍲"},
+    {"name":"Luchi Aloo Dum","category":"Bengali","price":85,"description":"Bengali luchi with potato curry","emoji":"🍛"},
+    {"name":"Momos Fried","category":"Street Food","price":80,"description":"Crispy fried vegetable momos","emoji":"🥟"},
+    {"name":"Chilli Potato","category":"Indo-Chinese","price":85,"description":"Crispy potatoes in chilli sauce","emoji":"🥔"},
+    {"name":"Spring Roll","category":"Indo-Chinese","price":70,"description":"Crispy vegetable spring rolls","emoji":"🌯"},
+    {"name":"Hakka Noodles","category":"Indo-Chinese","price":90,"description":"Street-style Hakka noodles","emoji":"🍜"},
+    {"name":"Schezwan Fried Rice","category":"Indo-Chinese","price":99,"description":"Spicy Schezwan fried rice","emoji":"🍚"},
+    {"name":"Chilli Paneer","category":"Indo-Chinese","price":99,"description":"Paneer tossed in chilli sauce","emoji":"🍲"},
+    {"name":"Bread Pakora","category":"Street Food","price":30,"description":"Crispy stuffed bread pakora","emoji":"🍞"},
+    {"name":"Onion Pakora","category":"Street Food","price":35,"description":"Crispy onion fritters","emoji":"🧅"},
+    {"name":"Paneer Pakora","category":"Street Food","price":65,"description":"Paneer fritters","emoji":"🧀"},
+    {"name":"Aloo Bonda","category":"Street Food","price":30,"description":"South Indian potato bonda","emoji":"🥔"},
+    {"name":"Vada Pav Cheese","category":"Maharashtra","price":40,"description":"Cheese-loaded vada pav","emoji":"🥪"},
+    {"name":"Dahi Vada","category":"Street Food","price":55,"description":"Lentil vada with yogurt","emoji":"🥣"},
+    {"name":"Kulfi","category":"Desserts","price":40,"description":"Traditional Indian kulfi","emoji":"🍦"},
+    {"name":"Rabri","category":"Desserts","price":60,"description":"Thickened sweetened milk","emoji":"🍮"},
+    {"name":"Rasgulla","category":"Bengali","price":35,"description":"Soft Bengali cottage-cheese sweet","emoji":"🍡"},
+    {"name":"Sandesh","category":"Bengali","price":45,"description":"Bengali milk-based sweet","emoji":"🍬"},
+    {"name":"Malpua","category":"Rajasthani","price":50,"description":"Sweet fried pancake","emoji":"🥞"},
+    {"name":"Kesar Lassi","category":"Drinks","price":60,"description":"Chilled saffron lassi","emoji":"🥛"},
+    {"name":"Masala Chaas","category":"Drinks","price":30,"description":"Spiced buttermilk","emoji":"🥛"},
+    {"name":"Sugarcane Juice","category":"Drinks","price":35,"description":"Fresh sugarcane juice","emoji":"🥤"},
+    {"name":"Masala Chai","category":"Drinks","price":20,"description":"Indian spiced tea","emoji":"☕"},
+    {"name":"Filter Coffee","category":"Drinks","price":30,"description":"South Indian filter coffee","emoji":"☕"},
+    {"name":"Mango Lassi","category":"Drinks","price":60,"description":"Refreshing mango yogurt drink","emoji":"🥭"},
+    {"name":"Pav Sandwich","category":"Sandwich","price":60,"description":"Mumbai-style stuffed pav sandwich","emoji":"🥪"},
+    {"name":"Frankie Roll","category":"Street Food","price":75,"description":"Indian-style stuffed frankie roll","emoji":"🌯"},
+    {"name":"Paneer Frankie","category":"Street Food","price":90,"description":"Paneer frankie roll","emoji":"🌯"},
+    {"name":"Egg Roll","category":"Kolkata","price":75,"description":"Kolkata-style egg roll","emoji":"🌯"},
+    {"name":"Chicken Frankie","category":"Street Food","price":99,"description":"Chicken-filled frankie roll","emoji":"🌯"},
+    {"name":"Chicken Momos","category":"Street Food","price":99,"description":"Steamed chicken momos","emoji":"🥟"},
+    {"name":"Egg Bhurji Pav","category":"Maharashtra","price":75,"description":"Spiced egg bhurji with pav","emoji":"🍳"},
+    {"name":"Chicken Kathi Roll","category":"Kolkata","price":99,"description":"Chicken-filled kathi roll","emoji":"🌯"},
 ]
 
 plans = {
@@ -131,13 +231,15 @@ elif page == "Food Menu":
     st.title("Explore Our Food Menu")
     search_terms = [item["name"] for item in menu]
     visible_terms = "".join(f"<span>{term}</span>" for term in search_terms)
+    scroll_count = len(search_terms)
+    st.markdown(f"""<style>.search-rotate {{ animation:foodscroll {scroll_count * 2}s steps({scroll_count}) infinite; }} @keyframes foodscroll {{ to {{ transform:translateY(-{scroll_count * 1.5}em); }} }}</style>""", unsafe_allow_html=True)
     st.markdown(f"""
     <div class="search-hint">Search for
       <span class="search-rotate">{visible_terms}</span>
     </div>
     """, unsafe_allow_html=True)
     search = st.text_input("Search food", placeholder="Type a food name...", label_visibility="collapsed")
-    categories = ["All", "Pizza", "Burger", "Maharashtra", "Gujarati", "South Indian", "Chinese", "Street Food", "Combos", "Drinks", "Meals", "Desserts"]
+    categories = ["All"] + list(dict.fromkeys(item["category"] for item in menu))
     st.write("**Categories**")
     category_cols = st.columns(4)
     for i, category in enumerate(categories):
