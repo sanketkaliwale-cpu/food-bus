@@ -4,7 +4,7 @@ from datetime import datetime
 # ---------------- PAGE SETTINGS ----------------
 
 st.image("food_bus_logo.png", width=250)
-    layout="wide"
+    
 )
 
 # ---------------- SESSION DATA ----------------
