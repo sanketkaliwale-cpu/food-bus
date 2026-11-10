@@ -314,7 +314,7 @@ elif page == "Food Menu":
                 st.markdown(f"<h3 class='food-title'>{item['name']}</h3>", unsafe_allow_html=True)
                 st.write(item["description"])
                 st.markdown(f"<div class='food-price'>₹{item['price']}</div>", unsafe_allow_html=True)
-                if st.button("Add to Cart", key="add_" + item["name"], use_container_width=True):
+                if st.button("Add to Cart", key="add_" + str(index) + "_" + item["name"], use_container_width=True):
                     name = item["name"]
                     st.session_state.cart[name] = st.session_state.cart.get(name, 0) + 1
                     st.success("Added to cart!")
