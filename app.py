@@ -524,11 +524,18 @@ elif page == "My Orders":
                 st.write("Customer:", order["customer"])
                 st.write("Date:", order["date"])
                 if order["type"] == "Food Order":
-                    st.write("Items:", order["items"])
-                    st.write("Total: ₹", order["total"])
+                    st.markdown("**Ordered Items**")
+                    items = order.get("items", {})
+                    if isinstance(items, dict) and items:
+                        for item_name, quantity in items.items():
+                            item_label = "item" if quantity == 1 else "items"
+                            st.write(f"{item_name} — Quantity: {quantity} {item_label}")
+                    else:
+                        st.write("No item details available.")
+                    st.markdown(f"**Total Amount: ₹{order['total']}**")
                 else:
-                    st.write("Plan:", order["plan"])
-                    st.write("Price: ₹", order["price"])
+                    st.write("Membership Plan:", order["plan"])
+                    st.write("Membership Price: ₹", order["price"])
 
 st.divider()
 st.caption("FOOD BUS | Food Ordering & Mess Membership")
