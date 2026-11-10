@@ -5,7 +5,7 @@ from datetime import datetime
 
 st.image("food_bus_logo.png", width=250)
     
-)
+
 
 # ---------------- SESSION DATA ----------------
 
