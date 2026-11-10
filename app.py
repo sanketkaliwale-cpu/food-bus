@@ -63,6 +63,76 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
   }
   .block-container { padding-bottom: 100px !important; }
 }
+
+/* Clean, spacious navigation tabs */
+div[data-testid="stRadio"] {
+  background: #ffffff !important;
+  border: 1px solid #c9ddcf !important;
+  border-radius: 16px !important;
+  padding: 9px !important;
+  box-shadow: 0 3px 12px rgba(22, 80, 48, .08) !important;
+  margin: 8px 0 18px 0 !important;
+}
+div[data-testid="stRadio"] > label { display: none !important; }
+div[data-testid="stRadio"] div[role="radiogroup"] {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+div[data-testid="stRadio"] div[role="radiogroup"] label {
+  flex: 1 1 20% !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: 46px !important;
+  padding: 10px 8px !important;
+  margin: 0 !important;
+  border: 1px solid #d7e6db !important;
+  border-radius: 11px !important;
+  background: #f6faf7 !important;
+  color: #245b3b !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+div[data-testid="stRadio"] div[role="radiogroup"] label p {
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+  color: inherit !important;
+  font-weight: 700 !important;
+}
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) {
+  background: #176b3a !important;
+  border-color: #176b3a !important;
+  color: #ffffff !important;
+}
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) p {
+  color: #ffffff !important;
+}
+@media (max-width: 768px) {
+  div[data-testid="stRadio"] {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 999999 !important;
+    border-radius: 15px 15px 0 0 !important;
+    margin: 0 !important;
+    padding: 8px 5px calc(8px + env(safe-area-inset-bottom)) 5px !important;
+  }
+  div[data-testid="stRadio"] div[role="radiogroup"] { gap: 5px !important; }
+  div[data-testid="stRadio"] div[role="radiogroup"] label {
+    min-height: 52px !important;
+    padding: 9px 3px !important;
+    font-size: 12px !important;
+  }
+  div[data-testid="stRadio"] div[role="radiogroup"] label p {
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+  }
+  .block-container { padding-bottom: 105px !important; }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -285,12 +355,12 @@ st.markdown("""
 st.sidebar.title("🚌 FOOD BUS")
 page = st.radio(
     "Navigation",
-    ["🏠 Home", "🍔 Food Menu", "🛒 My Cart", "🍱 Mess Membership", "📦 My Orders"],
+    ["Home", "Food Menu", "My Cart", "Mess Membership", "My Orders"],
     horizontal=True,
     label_visibility="collapsed",
     key="main_navigation"
 )
-page = page.split(" ", 1)[1]
+# Navigation labels are plain text for a cleaner, professional look
 
 if page == "Home":
     st.markdown("""
@@ -301,13 +371,13 @@ if page == "Home":
     st.write("Explore popular Indian street food and affordable meal plans.")
     c1, c2 = st.columns(2)
     with c1:
-        st.info("🍕 FOOD ORDERING")
+        st.info("FOOD ORDERING")
         st.write("Pizza, burgers, regional Indian snacks, South Indian dishes, Chinese and more.")
         if st.button("Explore Food Menu", key="home_menu"):
             st.session_state.category = "All"
             st.rerun()
     with c2:
-        st.info("🍱 MESS MEMBERSHIP")
+        st.info("MESS MEMBERSHIP")
         st.write("Daily thali, weekly and monthly membership options.")
     st.divider()
     st.subheader("Popular Indian Food Regions")
