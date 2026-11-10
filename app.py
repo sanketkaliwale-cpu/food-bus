@@ -524,7 +524,7 @@ elif page == "Food Menu":
     with st.container(key="food_grid"):
         cols = st.columns(3)
         for index, item in enumerate(filtered_menu):
-                with cols[index % 3]:
+            with cols[index % 3]:
                 with st.container(border=True):
                     st.markdown(f"<div class='food-photo-slot'>{item['emoji']}</div>", unsafe_allow_html=True)
                     st.markdown(f"<h3 class='food-title'>{item['name']}</h3>", unsafe_allow_html=True)
