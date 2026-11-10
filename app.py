@@ -82,6 +82,54 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
 .search-rotate { display:inline-flex; flex-direction:column; vertical-align:bottom; height:1.5em; overflow:hidden; color:#e83e8c; }
 .search-rotate span { display:block; height:1.5em; line-height:1.5em; }
 .food-photo-slot { width:154px; height:154px; margin:12px auto 18px; border-radius:50%; background:radial-gradient(circle,#fffaf0 0 58%,#f3d89b 59% 64%,#176b3a 65% 69%,#fff 70%); display:flex; align-items:center; justify-content:center; font-size:4rem; box-shadow:0 4px 14px rgba(0,0,0,.12); }
+/* Compact, horizontally scrollable food categories */
+.st-key-category_filter { margin:4px 0 14px 0; }
+.st-key-category_filter [data-testid="stHorizontalBlock"] {
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:7px !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  padding:3px 2px 9px 2px !important;
+  scrollbar-width:thin;
+}
+.st-key-category_filter [data-testid="column"] {
+  flex:0 0 auto !important;
+  width:auto !important;
+  min-width:max-content !important;
+}
+.st-key-category_filter div.stButton > button {
+  min-height:36px !important;
+  padding:5px 13px !important;
+  border-radius:18px !important;
+  white-space:nowrap !important;
+  font-size:13px !important;
+}
+/* Tighter food cards and image slots */
+.st-key-food_grid div[data-testid="stVerticalBlockBorderWrapper"] {
+  padding:9px !important;
+  border-width:2px !important;
+}
+.st-key-food_grid .food-photo-slot {
+  width:112px;
+  height:112px;
+  margin:5px auto 10px;
+  font-size:3rem;
+}
+.st-key-food_grid .food-title { font-size:1.05rem; margin:4px 0 !important; }
+.st-key-food_grid .food-price { font-size:1rem; }
+.st-key-food_grid div.stButton > button { min-height:2.2rem; padding:5px 8px; }
+@media (max-width: 768px) {
+  .st-key-food_grid [data-testid="stHorizontalBlock"] {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:9px !important;
+  }
+  .st-key-food_grid [data-testid="column"] { width:auto !important; min-width:0 !important; }
+  .st-key-food_grid .food-photo-slot { width:92px; height:92px; font-size:2.5rem; }
+  .st-key-food_grid .food-title { font-size:.95rem; }
+  .st-key-food_grid div[data-testid="stVerticalBlockBorderWrapper"] { padding:7px !important; }
+}
 
 @media (max-width: 768px) {
   section[data-testid="stSidebar"] { display: none !important; }
@@ -456,11 +504,12 @@ elif page == "Food Menu":
     search = st.text_input("Search food", placeholder="Search by food name...", label_visibility="collapsed")
     categories = ["All", "Pizza", "Burger", "Sandwiches", "Rolls", "Paratha", "Dosa & Idli", "Chinese", "Chaat", "Snacks & Namkeen", "Meals", "Desserts", "Drinks"]
     st.write("**Categories**")
-    category_cols = st.columns(4)
-    for i, category in enumerate(categories):
-        with category_cols[i % 4]:
-            if st.button(category, key="cat_" + category, use_container_width=True):
-                st.session_state.category = category
+    with st.container(key="category_filter"):
+        category_cols = st.columns(len(categories))
+        for i, category in enumerate(categories):
+            with category_cols[i]:
+                if st.button(category, key="cat_" + category, use_container_width=True):
+                    st.session_state.category = category
     selected_category = st.session_state.category
     if selected_category != "All":
         st.caption("Showing: " + selected_category)
@@ -472,20 +521,21 @@ elif page == "Food Menu":
     ]
     if not filtered_menu:
         st.warning("No food items found. Try another search.")
-    cols = st.columns(3)
-    for index, item in enumerate(filtered_menu):
-        with cols[index % 3]:
-            with st.container(border=True):
-                st.markdown(f"<div class='food-photo-slot'>{item['emoji']}</div>", unsafe_allow_html=True)
-                st.markdown(f"<h3 class='food-title'>{item['name']}</h3>", unsafe_allow_html=True)
-                st.write(item["description"])
-                st.markdown(f"<div class='food-price'>₹{item['price']}</div>", unsafe_allow_html=True)
-                if st.button("Add to Cart", key="add_" + str(index) + "_" + item["name"], use_container_width=True):
-                    name = item["name"]
-                    st.session_state.cart[name] = st.session_state.cart.get(name, 0) + 1
-                    st.success("Added to cart!")
-                    st.rerun()
-
+    with st.container(key="food_grid"):
+        cols = st.columns(3)
+        for index, item in enumerate(filtered_menu):
+                with cols[index % 3]:
+                with st.container(border=True):
+                    st.markdown(f"<div class='food-photo-slot'>{item['emoji']}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<h3 class='food-title'>{item['name']}</h3>", unsafe_allow_html=True)
+                    st.write(item["description"])
+                    st.markdown(f"<div class='food-price'>₹{item['price']}</div>", unsafe_allow_html=True)
+                    if st.button("Add to Cart", key="add_" + str(index) + "_" + item["name"], use_container_width=True):
+                        name = item["name"]
+                        st.session_state.cart[name] = st.session_state.cart.get(name, 0) + 1
+                        st.success("Added to cart!")
+                        st.rerun()
+    
 elif page == "My Cart":
     st.title("My Cart")
     cart = st.session_state.cart
