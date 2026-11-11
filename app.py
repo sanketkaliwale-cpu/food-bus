@@ -445,6 +445,14 @@ div[data-testid="stRadio"].st-key-menu_category_radio div[role="radiogroup"] > l
   overflow-wrap:normal !important;
   writing-mode:horizontal-tb !important;
 }
+
+/* Hand-drawn Madhubani-inspired FOOD BUS banner */
+.madhubani-hero { position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important; min-height:250px !important; padding:16px 10px !important; overflow:hidden !important; background:radial-gradient(ellipse at center,#267a4a 0%,#155333 75%) !important; border-radius:18px !important; }
+.folk-banner { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; pointer-events:none !important; }
+.hero-copy { position:relative !important; z-index:2 !important; text-align:center !important; padding:13px 28px !important; border:1px solid rgba(246,215,123,.8) !important; border-radius:14px !important; background:rgba(18,72,43,.88) !important; box-shadow:0 4px 18px rgba(0,0,0,.22) !important; }
+.hero-copy h1 { color:#fff4d2 !important; font-size:clamp(1.8rem,4vw,3rem) !important; line-height:1.1 !important; margin:0 0 6px !important; letter-spacing:1.5px !important; }
+.hero-copy p { color:#f6dca0 !important; margin:0 !important; font-size:clamp(.78rem,1.5vw,1rem) !important; }
+@media (max-width:700px) { .madhubani-hero { min-height:170px !important; } .folk-banner { opacity:.72 !important; } .hero-copy { padding:10px 15px !important; } }
 </style>
 """, unsafe_allow_html=True)
 
@@ -661,7 +669,71 @@ plans = {
 
 # ---------- BRAND HEADER ----------
 st.markdown("""
-<div class="hero"><h1>🚌 FOOD BUS</h1><p>Good Food. Great Value. Easy Ordering.</p></div>
+<div class="hero madhubani-hero">
+<svg class="folk-banner" viewBox="0 0 1200 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Indian Madhubani-inspired folk art featuring Taj Mahal, elephants, peacocks and floral motifs">
+<defs>
+ <pattern id="dotsA" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.7" fill="#f6d77b"/><circle cx="9" cy="9" r="1.4" fill="#e97854"/></pattern>
+ <pattern id="stripesA" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 0L10 10M-3 3L3 -3M7 13L13 7" stroke="#f4d27a" stroke-width="1.4"/></pattern>
+</defs>
+<rect x="7" y="7" width="1186" height="236" rx="17" fill="none" stroke="#f6d77b" stroke-width="5"/>
+<rect x="17" y="17" width="1166" height="216" rx="12" fill="none" stroke="#f6d77b" stroke-width="1.8" stroke-dasharray="3 6"/>
+<!-- ornamental floral corners -->
+<g stroke="#f6d77b" stroke-width="3" stroke-linejoin="round" fill="#d85b49">
+ <path d="M38 50Q65 24 91 50Q65 76 38 50ZM91 50Q117 24 143 50Q117 76 91 50ZM65 76Q65 42 91 27Q117 42 117 76" />
+ <path d="M1109 50Q1135 24 1161 50Q1135 76 1109 50ZM1057 50Q1083 24 1109 50Q1083 76 1057 50ZM1083 76Q1083 42 1109 27Q1135 42 1135 76"/>
+ <path d="M38 200Q65 174 91 200Q65 226 38 200ZM91 200Q117 174 143 200Q117 226 91 200Z M1057 200Q1083 174 1109 200Q1083 226 1057 200ZM1109 200Q1135 174 1161 200Q1135 226 1109 200Z"/>
+</g>
+<!-- elephant procession -->
+<g stroke="#f6d77b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+ <g transform="translate(145 0)">
+  <path d="M20 164Q22 121 64 115Q105 111 125 145L143 151Q153 163 140 177L127 179L125 207H111L108 179H54L50 207H36L34 177Q17 176 20 164Z" fill="#e6a64d"/>
+  <path d="M121 146Q149 131 154 155Q157 171 143 177M142 165Q129 173 134 187" fill="none"/>
+  <path d="M44 124Q72 92 105 124L95 143H53Z" fill="#c64f43"/><path d="M53 125L74 106L95 125M74 106V91" fill="none"/>
+  <path d="M57 147Q75 132 94 147Q75 163 57 147Z" fill="url(#dotsA)"/><circle cx="111" cy="143" r="3.8" fill="#173f2b" stroke="none"/>
+  <path d="M33 161Q48 150 59 161M65 178L65 191M88 178L88 191" fill="none"/>
+ </g>
+ <g transform="translate(900 0) scale(.92 1)">
+  <path d="M20 164Q22 121 64 115Q105 111 125 145L143 151Q153 163 140 177L127 179L125 207H111L108 179H54L50 207H36L34 177Q17 176 20 164Z" fill="#e6a64d"/>
+  <path d="M121 146Q149 131 154 155Q157 171 143 177M142 165Q129 173 134 187" fill="none"/>
+  <path d="M44 124Q72 92 105 124L95 143H53Z" fill="#c64f43"/><path d="M53 125L74 106L95 125M74 106V91" fill="none"/>
+  <path d="M57 147Q75 132 94 147Q75 163 57 147Z" fill="url(#dotsA)"/><circle cx="111" cy="143" r="3.8" fill="#173f2b" stroke="none"/>
+  <path d="M33 161Q48 150 59 161M65 178L65 191M88 178L88 191" fill="none"/>
+ </g>
+</g>
+<!-- peacocks -->
+<g stroke="#f6d77b" stroke-width="2.8" stroke-linejoin="round">
+ <path d="M300 184Q272 148 288 117Q309 128 312 157Q319 119 342 112Q354 148 329 178Q352 154 370 162Q364 194 329 199Z" fill="#278b69"/>
+ <path d="M299 169Q295 144 306 137Q317 147 312 169M324 171Q325 144 339 137Q347 151 332 174M342 183Q350 166 360 170" fill="none"/>
+ <path d="M316 184Q305 159 320 145Q337 159 329 184L324 205H313Z" fill="#2b9c83"/>
+ <circle cx="323" cy="151" r="3" fill="#f4d27a" stroke="none"/><path d="M317 143L320 135L324 143M323 147L335 143" fill="none"/>
+ <path d="M900 184Q872 148 888 117Q909 128 912 157Q919 119 942 112Q954 148 929 178Q952 154 970 162Q964 194 929 199Z" fill="#278b69"/>
+ <path d="M899 169Q895 144 906 137Q917 147 912 169M924 171Q925 144 939 137Q947 151 932 174M942 183Q950 166 960 170" fill="none"/>
+ <path d="M916 184Q905 159 920 145Q937 159 929 184L924 205H913Z" fill="#2b9c83"/>
+ <circle cx="923" cy="151" r="3" fill="#f4d27a" stroke="none"/><path d="M917 143L920 135L924 143M923 147L935 143" fill="none"/>
+</g>
+<!-- Taj Mahal -->
+<g transform="translate(0 1)" stroke="#f6d77b" stroke-width="3" stroke-linejoin="round">
+ <path d="M478 183V125L510 99L542 125V183ZM658 183V125L690 99L722 125V183Z" fill="#e9dfc5"/>
+ <path d="M514 183V105Q600 18 686 105V183Z" fill="#f4e8ca"/>
+ <path d="M570 183V132Q600 91 630 132V183Z" fill="#c85a48"/>
+ <path d="M540 183V139Q555 117 570 139V183M630 183V139Q645 117 660 139V183" fill="#d36a50"/>
+ <path d="M600 38V20M591 27H609M600 20L594 12L600 4L606 12Z" fill="#e6a64d"/>
+ <path d="M510 99V80M500 87H520M690 99V80M680 87H700M478 125V108M468 115H488M722 125V108M712 115H732" fill="none"/>
+ <path d="M475 183H725M490 193H710" fill="none"/>
+ <path d="M586 183V153Q600 132 614 153V183" fill="#f6d77b"/>
+ <path d="M555 105Q600 65 645 105M575 112Q600 91 625 112" fill="none"/>
+</g>
+<!-- floral vines and dots -->
+<g fill="none" stroke="#f6d77b" stroke-width="2.4">
+ <path d="M170 44Q220 15 270 44T370 44M830 44Q880 15 930 44T1030 44"/>
+ <path d="M170 215Q220 185 270 215T370 215M830 215Q880 185 930 215T1030 215"/>
+ <path d="M185 44q-12 -18 -24 0q12 18 24 0M245 44q-12 -18 -24 0q12 18 24 0M305 44q-12 -18 -24 0q12 18 24 0M865 44q-12 -18 -24 0q12 18 24 0M925 44q-12 -18 -24 0q12 18 24 0M985 44q-12 -18 -24 0q12 18 24 0"/>
+ <path d="M185 215q-12 -18 -24 0q12 18 24 0M245 215q-12 -18 -24 0q12 18 24 0M305 215q-12 -18 -24 0q12 18 24 0M865 215q-12 -18 -24 0q12 18 24 0M925 215q-12 -18 -24 0q12 18 24 0M985 215q-12 -18 -24 0q12 18 24 0"/>
+</g>
+<g fill="#f6d77b"><circle cx="405" cy="54" r="4"/><circle cx="430" cy="74" r="3"/><circle cx="795" cy="54" r="4"/><circle cx="770" cy="74" r="3"/><circle cx="405" cy="195" r="4"/><circle cx="795" cy="195" r="4"/></g>
+</svg>
+<div class="hero-copy"><h1>🚌 FOOD BUS</h1><p>Good Food. Great Value. Easy Ordering.</p></div>
+</div>
 """, unsafe_allow_html=True)
 
 st.sidebar.title("🚌 FOOD BUS")
