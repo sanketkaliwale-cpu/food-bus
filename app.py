@@ -513,13 +513,14 @@ elif page == "Food Menu":
     search = st.text_input("Search food", placeholder="Search by food name...", label_visibility="collapsed")
     categories = ["All", "Pizza", "Burger", "Sandwiches", "Rolls", "Paratha", "Dosa & Idli", "Chinese", "Chaat", "Snacks & Namkeen", "Meals", "Desserts", "Drinks"]
     st.write("**Categories**")
-    with st.container(key="category_filter"):
-        category_cols = st.columns(len(categories))
-        for i, category in enumerate(categories):
-            with category_cols[i]:
-                if st.button(category, key="cat_" + category):
-                    st.session_state.category = category
-    selected_category = st.session_state.category
+    selected_category = st.radio(
+        "Choose a food category",
+        categories,
+        horizontal=True,
+        key="menu_category_radio",
+        label_visibility="collapsed"
+    )
+    st.session_state.category = selected_category
     if selected_category != "All":
         st.caption("Showing: " + selected_category)
     query = search.strip().lower()
