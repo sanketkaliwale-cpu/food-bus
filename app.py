@@ -6,13 +6,15 @@ st.set_page_config(page_title="FOOD BUS", page_icon="🚌", layout="wide")
 # ---------- FOOD BUS LOOK & FEEL ----------
 st.markdown("""
 <style>
-.stApp { background: #e8f5e9; }
-.block-container { max-width: 1200px; padding-top: 1.4rem; }
-h1, h2, h3 { color: #176b3a; }
-.food-title { color: #e83e8c !important; font-weight: 800; text-align: center; }
-.food-price { color: #111; font-weight: 800; font-size: 1.15rem; }
-div.stButton > button { background:#168342; color:white; border:0; border-radius:12px; font-weight:700; min-height:2.55rem; }
-div.stButton > button:hover { background:#0e6330; color:white; border:0; }
+/* Royal Indian visual identity: ivory, deep emerald, marigold, ruby and antique gold */
+.stApp { background:linear-gradient(145deg,#fff9ed 0%,#f8edda 48%,#f5e5cf 100%); }
+.block-container { max-width:1200px; padding-top:1.4rem; }
+h1,h2,h3 { color:#713b2d; }
+.food-title { color:#713b2d !important; font-weight:800; text-align:center; }
+.food-price { color:#176044; font-weight:800; font-size:1.15rem; }
+div.stButton > button { background:#176044; color:#fff8e9; border:1px solid #c99a42; border-radius:12px; font-weight:700; min-height:2.55rem; }
+div.stButton > button:hover { background:#a84436; color:#fff8e9; border:1px solid #e4bd68; }
+div[data-testid="stVerticalBlockBorderWrapper"] { border-color:#c99a42 !important; background:#fffdf7 !important; box-shadow:0 4px 16px rgba(91,51,29,.09) !important; }
 div[data-testid="stVerticalBlockBorderWrapper"] {
  background:#fff; border-radius:18px; border:3px solid #d8b36a; padding:14px;
  box-shadow:0 3px 12px rgba(30,80,45,.07);
@@ -28,7 +30,7 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
   width:100%;
   min-height:168px;
   overflow:visible;
-  background:linear-gradient(110deg,#0f5b32 0%,#21834a 55%,#36a765 100%);
+  background:linear-gradient(115deg,#7d302d 0%,#176044 48%,#a8752b 100%);
   padding:34px 22px 30px;
   border:3px double #e7c779;
   outline:1px solid rgba(255,255,255,.55);
@@ -85,7 +87,7 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
 .search-hint { color:#176b3a; font-weight:800; margin:4px 0 8px 2px; }
 .search-rotate { display:inline-flex; flex-direction:column; vertical-align:bottom; height:1.5em; overflow:hidden; color:#e83e8c; }
 .search-rotate span { display:block; height:1.5em; line-height:1.5em; }
-.food-photo-slot { width:154px; height:154px; margin:12px auto 18px; border-radius:50%; background:radial-gradient(circle,#fffaf0 0 58%,#f3d89b 59% 64%,#176b3a 65% 69%,#fff 70%); display:flex; align-items:center; justify-content:center; font-size:4rem; box-shadow:0 4px 14px rgba(0,0,0,.12); }
+ .food-photo-slot { width:154px; height:154px; margin:12px auto 18px; border-radius:50%; background:radial-gradient(circle,#fffaf0 0 55%,#d9a441 56% 59%,#9b3e35 60% 63%,#176044 64% 68%,#fff2d6 69% 100%); display:flex; align-items:center; justify-content:center; font-size:4rem; box-shadow:0 4px 14px rgba(0,0,0,.12); }
 /* Compact, horizontally scrollable food categories */
 .st-key-category_filter { margin:4px 0 14px 0; }
 .st-key-category_filter [data-testid="stHorizontalBlock"] {
@@ -466,7 +468,7 @@ div[data-testid="stRadio"].st-key-menu_category_radio div[role="radiogroup"] > l
 }
 
 /* Hand-drawn Madhubani-inspired FOOD BUS banner */
-.madhubani-hero { position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important; min-height:250px !important; padding:16px 10px !important; overflow:hidden !important; background:radial-gradient(ellipse at center,#267a4a 0%,#155333 75%) !important; border-radius:18px !important; }
+.madhubani-hero { position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important; min-height:250px !important; padding:16px 10px !important; overflow:hidden !important; background:radial-gradient(ellipse at center,#1d694b 0%,#123d31 72%,#713b2d 100%) !important; border-radius:18px !important; }
 .folk-banner { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; pointer-events:none !important; }
 .hero-copy { position:relative !important; z-index:2 !important; text-align:center !important; padding:13px 28px !important; border:1px solid rgba(246,215,123,.8) !important; border-radius:14px !important; background:rgba(18,72,43,.88) !important; box-shadow:0 4px 18px rgba(0,0,0,.22) !important; }
 .hero-copy h1 { color:#fff4d2 !important; font-size:clamp(1.8rem,4vw,3rem) !important; line-height:1.1 !important; margin:0 0 6px !important; letter-spacing:1.5px !important; }
@@ -702,33 +704,22 @@ st.markdown("""
  <path d="M1109 50Q1135 24 1161 50Q1135 76 1109 50ZM1057 50Q1083 24 1109 50Q1083 76 1057 50ZM1083 76Q1083 42 1109 27Q1135 42 1135 76"/>
  <path d="M38 200Q65 174 91 200Q65 226 38 200ZM91 200Q117 174 143 200Q117 226 91 200Z M1057 200Q1083 174 1109 200Q1083 226 1057 200ZM1109 200Q1135 174 1161 200Q1135 226 1109 200Z"/>
 </g>
-<!-- elephant procession -->
-<g stroke="#f6d77b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
- <g transform="translate(145 0)">
-  <path d="M20 164Q22 121 64 115Q105 111 125 145L143 151Q153 163 140 177L127 179L125 207H111L108 179H54L50 207H36L34 177Q17 176 20 164Z" fill="#e6a64d"/>
-  <path d="M121 146Q149 131 154 155Q157 171 143 177M142 165Q129 173 134 187" fill="none"/>
-  <path d="M44 124Q72 92 105 124L95 143H53Z" fill="#c64f43"/><path d="M53 125L74 106L95 125M74 106V91" fill="none"/>
-  <path d="M57 147Q75 132 94 147Q75 163 57 147Z" fill="url(#dotsA)"/><circle cx="111" cy="143" r="3.8" fill="#173f2b" stroke="none"/>
-  <path d="M33 161Q48 150 59 161M65 178L65 191M88 178L88 191" fill="none"/>
+<!-- lotus flowers and Rajasthani-inspired ornamental vines -->
+<g stroke="#f6d77b" stroke-width="3" stroke-linejoin="round">
+ <g transform="translate(235 0)">
+  <path d="M0 184Q-37 150 -20 126Q-4 136 0 158Q4 136 20 126Q37 150 0 184Z" fill="#d85b49"/>
+  <path d="M0 184Q-27 163 -12 143Q0 151 0 168Q12 151 24 143Q39 163 0 184Z" fill="#f1b84b"/>
+  <path d="M-35 184Q-48 164 -32 153Q-18 165 -18 184M35 184Q48 164 32 153Q18 165 18 184" fill="#2d9b72"/>
+  <path d="M-47 187Q0 199 47 187M0 184V207" fill="none"/>
+  <circle cx="0" cy="163" r="5" fill="#f8e6b8"/>
  </g>
- <g transform="translate(900 0) scale(.92 1)">
-  <path d="M20 164Q22 121 64 115Q105 111 125 145L143 151Q153 163 140 177L127 179L125 207H111L108 179H54L50 207H36L34 177Q17 176 20 164Z" fill="#e6a64d"/>
-  <path d="M121 146Q149 131 154 155Q157 171 143 177M142 165Q129 173 134 187" fill="none"/>
-  <path d="M44 124Q72 92 105 124L95 143H53Z" fill="#c64f43"/><path d="M53 125L74 106L95 125M74 106V91" fill="none"/>
-  <path d="M57 147Q75 132 94 147Q75 163 57 147Z" fill="url(#dotsA)"/><circle cx="111" cy="143" r="3.8" fill="#173f2b" stroke="none"/>
-  <path d="M33 161Q48 150 59 161M65 178L65 191M88 178L88 191" fill="none"/>
+ <g transform="translate(965 0)">
+  <path d="M0 184Q-37 150 -20 126Q-4 136 0 158Q4 136 20 126Q37 150 0 184Z" fill="#d85b49"/>
+  <path d="M0 184Q-27 163 -12 143Q0 151 0 168Q12 151 24 143Q39 163 0 184Z" fill="#f1b84b"/>
+  <path d="M-35 184Q-48 164 -32 153Q-18 165 -18 184M35 184Q48 164 32 153Q18 165 18 184" fill="#2d9b72"/>
+  <path d="M-47 187Q0 199 47 187M0 184V207" fill="none"/>
+  <circle cx="0" cy="163" r="5" fill="#f8e6b8"/>
  </g>
-</g>
-<!-- peacocks -->
-<g stroke="#f6d77b" stroke-width="2.8" stroke-linejoin="round">
- <path d="M300 184Q272 148 288 117Q309 128 312 157Q319 119 342 112Q354 148 329 178Q352 154 370 162Q364 194 329 199Z" fill="#278b69"/>
- <path d="M299 169Q295 144 306 137Q317 147 312 169M324 171Q325 144 339 137Q347 151 332 174M342 183Q350 166 360 170" fill="none"/>
- <path d="M316 184Q305 159 320 145Q337 159 329 184L324 205H313Z" fill="#2b9c83"/>
- <circle cx="323" cy="151" r="3" fill="#f4d27a" stroke="none"/><path d="M317 143L320 135L324 143M323 147L335 143" fill="none"/>
- <path d="M900 184Q872 148 888 117Q909 128 912 157Q919 119 942 112Q954 148 929 178Q952 154 970 162Q964 194 929 199Z" fill="#278b69"/>
- <path d="M899 169Q895 144 906 137Q917 147 912 169M924 171Q925 144 939 137Q947 151 932 174M942 183Q950 166 960 170" fill="none"/>
- <path d="M916 184Q905 159 920 145Q937 159 929 184L924 205H913Z" fill="#2b9c83"/>
- <circle cx="923" cy="151" r="3" fill="#f4d27a" stroke="none"/><path d="M917 143L920 135L924 143M923 147L935 143" fill="none"/>
 </g>
 <!-- Taj Mahal -->
 <g transform="translate(0 1)" stroke="#f6d77b" stroke-width="3" stroke-linejoin="round">
