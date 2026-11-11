@@ -293,24 +293,30 @@ div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) p {
 /* Compact category chips: wrap into close rows on phones, no stretched columns */
 .st-key-category_filter { width:100% !important; margin:3px 0 10px !important; }
 .st-key-category_filter [data-testid="stHorizontalBlock"] {
-  display:flex !important; flex-direction:row !important; flex-wrap:wrap !important;
-  justify-content:flex-start !important; align-items:center !important;
-  gap:5px 6px !important; overflow:visible !important; width:100% !important;
+  display:flex !important; flex-wrap:nowrap !important; align-items:stretch !important;
+  gap:7px !important; width:100% !important; margin:0 0 6px !important;
+  overflow:visible !important;
 }
 .st-key-category_filter [data-testid="column"] {
-  flex:0 0 auto !important; width:auto !important; min-width:0 !important;
-  max-width:max-content !important; padding:0 !important;
+  flex:1 1 0 !important; width:0 !important; min-width:0 !important;
+  max-width:33.333% !important; padding:0 !important;
 }
-.st-key-category_filter div.stButton { width:auto !important; }
+.st-key-category_filter div.stButton { width:100% !important; }
 .st-key-category_filter div.stButton > button {
-  min-height:29px !important; height:29px !important; width:auto !important;
-  min-width:0 !important; padding:3px 9px !important; margin:0 !important;
-  border-radius:15px !important; white-space:nowrap !important;
-  font-size:11px !important; line-height:1.1 !important;
+  display:flex !important; align-items:center !important; justify-content:center !important;
+  box-sizing:border-box !important; width:100% !important; min-width:0 !important;
+  min-height:34px !important; height:auto !important; padding:5px 4px !important;
+  margin:0 !important; border-radius:16px !important; white-space:normal !important;
+  overflow-wrap:anywhere !important; word-break:normal !important;
+  font-size:11px !important; line-height:1.15 !important;
+}
+.st-key-category_filter div.stButton > button p {
+  white-space:normal !important; overflow-wrap:anywhere !important; margin:0 !important;
 }
 @media (max-width:700px) {
-  .st-key-category_filter [data-testid="stHorizontalBlock"] { gap:4px 5px !important; }
-  .st-key-category_filter div.stButton > button { min-height:27px !important; height:27px !important; padding:2px 7px !important; font-size:10px !important; }
+  .st-key-category_filter [data-testid="stHorizontalBlock"] { gap:6px !important; }
+  .st-key-category_filter [data-testid="column"] { max-width:33.333% !important; }
+  .st-key-category_filter div.stButton > button { min-height:32px !important; font-size:10px !important; padding:4px 3px !important; }
 }
 
 /* FINAL OVERRIDE: category names stay on one line and scroll horizontally */
@@ -797,11 +803,14 @@ elif page == "Food Menu":
     categories = ["All", "Pizza", "Burger", "Sandwiches", "Rolls", "Paratha", "Dosa & Idli", "Chinese", "Chaat", "Snacks & Namkeen", "Meals", "Desserts", "Drinks"]
     st.write("**Categories**")
     with st.container(key="category_filter"):
-        category_cols = st.columns(len(categories))
-        for i, category in enumerate(categories):
-            with category_cols[i]:
-                if st.button(category, key="category_chip_" + str(i), use_container_width=False):
-                    st.session_state.category = category
+        # Three compact chips per row keeps long labels separated on narrow phone screens.
+        for row_start in range(0, len(categories), 3):
+            category_cols = st.columns(3, gap="small")
+            for col_index, category in enumerate(categories[row_start:row_start + 3]):
+                category_index = row_start + col_index
+                with category_cols[col_index]:
+                    if st.button(category, key="category_chip_" + str(category_index), use_container_width=True):
+                        st.session_state.category = category
     selected_category = st.session_state.category
     if selected_category != "All":
         st.caption("Showing: " + selected_category)
