@@ -288,9 +288,28 @@ div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) p {
 .st-key-food_grid .food-price { font-size:1rem !important; font-weight:700; margin:3px 0; }
 .st-key-food_grid .food-availability { color:#18864b; font-size:11px; font-weight:650; }
 .st-key-food_grid div.stButton > button { min-height:30px !important; width:auto !important; padding:3px 16px !important; font-size:12px !important; border-radius:7px !important; }
-.st-key-category_filter [data-testid="stHorizontalBlock"] { display:flex !important; flex-wrap:nowrap !important; gap:6px !important; overflow-x:auto !important; padding:2px 2px 8px !important; }
-.st-key-category_filter [data-testid="column"] { flex:0 0 auto !important; width:auto !important; min-width:max-content !important; }
-.st-key-category_filter div.stButton > button { min-height:31px !important; padding:4px 11px !important; border-radius:16px !important; white-space:nowrap !important; font-size:12px !important; }
+/* Compact category chips: wrap into close rows on phones, no stretched columns */
+.st-key-category_filter { width:100% !important; margin:3px 0 10px !important; }
+.st-key-category_filter [data-testid="stHorizontalBlock"] {
+  display:flex !important; flex-direction:row !important; flex-wrap:wrap !important;
+  justify-content:flex-start !important; align-items:center !important;
+  gap:5px 6px !important; overflow:visible !important; width:100% !important;
+}
+.st-key-category_filter [data-testid="column"] {
+  flex:0 0 auto !important; width:auto !important; min-width:0 !important;
+  max-width:max-content !important; padding:0 !important;
+}
+.st-key-category_filter div.stButton { width:auto !important; }
+.st-key-category_filter div.stButton > button {
+  min-height:29px !important; height:29px !important; width:auto !important;
+  min-width:0 !important; padding:3px 9px !important; margin:0 !important;
+  border-radius:15px !important; white-space:nowrap !important;
+  font-size:11px !important; line-height:1.1 !important;
+}
+@media (max-width:700px) {
+  .st-key-category_filter [data-testid="stHorizontalBlock"] { gap:4px 5px !important; }
+  .st-key-category_filter div.stButton > button { min-height:27px !important; height:27px !important; padding:2px 7px !important; font-size:10px !important; }
+}
 
 /* FINAL OVERRIDE: category names stay on one line and scroll horizontally */
 div[data-testid="stRadio"].st-key-menu_category_radio {
