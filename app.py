@@ -287,6 +287,56 @@ div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) p {
 .st-key-category_filter [data-testid="stHorizontalBlock"] { display:flex !important; flex-wrap:nowrap !important; gap:6px !important; overflow-x:auto !important; padding:2px 2px 8px !important; }
 .st-key-category_filter [data-testid="column"] { flex:0 0 auto !important; width:auto !important; min-width:max-content !important; }
 .st-key-category_filter div.stButton > button { min-height:31px !important; padding:4px 11px !important; border-radius:16px !important; white-space:nowrap !important; font-size:12px !important; }
+
+/* FINAL OVERRIDE: category names stay on one line and scroll horizontally */
+div[data-testid="stRadio"].st-key-menu_category_radio {
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  overflow:hidden !important;
+  padding:4px 0 8px !important;
+  margin:4px 0 14px !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+div[data-testid="stRadio"].st-key-menu_category_radio div[role="radiogroup"] {
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  justify-content:flex-start !important;
+  align-items:center !important;
+  gap:8px !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  white-space:nowrap !important;
+  scrollbar-width:thin !important;
+}
+div[data-testid="stRadio"].st-key-menu_category_radio div[role="radiogroup"] > label {
+  display:flex !important;
+  flex:0 0 auto !important;
+  width:max-content !important;
+  min-width:max-content !important;
+  max-width:none !important;
+  min-height:36px !important;
+  white-space:nowrap !important;
+  flex-wrap:nowrap !important;
+  padding:7px 14px !important;
+  margin:0 !important;
+  border-radius:20px !important;
+}
+div[data-testid="stRadio"].st-key-menu_category_radio div[role="radiogroup"] > label p {
+  display:inline-block !important;
+  width:max-content !important;
+  min-width:max-content !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  word-break:keep-all !important;
+  overflow-wrap:normal !important;
+  line-height:1.2 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
