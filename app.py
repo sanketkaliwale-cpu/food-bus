@@ -235,6 +235,15 @@ div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) p {
   .block-container { padding-bottom: 105px !important; }
 }
 
+/* FOOD BUS compact menu rows and category chips */
+.st-key-food_grid .food-photo-slot { width:76px !important; height:76px !important; margin:4px auto !important; font-size:2.1rem !important; }
+.st-key-food_grid .food-title { font-size:1rem !important; font-weight:700; margin:0 0 3px !important; }
+.st-key-food_grid .food-price { font-size:1rem !important; font-weight:700; margin:3px 0; }
+.st-key-food_grid .food-availability { color:#18864b; font-size:11px; font-weight:650; }
+.st-key-food_grid div.stButton > button { min-height:30px !important; width:auto !important; padding:3px 16px !important; font-size:12px !important; border-radius:7px !important; }
+.st-key-category_filter [data-testid="stHorizontalBlock"] { display:flex !important; flex-wrap:nowrap !important; gap:6px !important; overflow-x:auto !important; padding:2px 2px 8px !important; }
+.st-key-category_filter [data-testid="column"] { flex:0 0 auto !important; width:auto !important; min-width:max-content !important; }
+.st-key-category_filter div.stButton > button { min-height:31px !important; padding:4px 11px !important; border-radius:16px !important; white-space:nowrap !important; font-size:12px !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -508,7 +517,7 @@ elif page == "Food Menu":
         category_cols = st.columns(len(categories))
         for i, category in enumerate(categories):
             with category_cols[i]:
-                if st.button(category, key="cat_" + category, use_container_width=True):
+                if st.button(category, key="cat_" + category):
                     st.session_state.category = category
     selected_category = st.session_state.category
     if selected_category != "All":
@@ -522,19 +531,21 @@ elif page == "Food Menu":
     if not filtered_menu:
         st.warning("No food items found. Try another search.")
     with st.container(key="food_grid"):
-        cols = st.columns(3)
         for index, item in enumerate(filtered_menu):
-            with cols[index % 3]:
-                with st.container(border=True):
-                    st.markdown(f"<div class='food-photo-slot'>{item['emoji']}</div>", unsafe_allow_html=True)
-                    st.markdown(f"<h3 class='food-title'>{item['name']}</h3>", unsafe_allow_html=True)
-                    st.write(item["description"])
+            with st.container(border=True):
+                info_col, photo_col = st.columns([5, 1.55], vertical_alignment="center")
+                with info_col:
+                    st.markdown(f"<div class='food-title'>{item['name']}</div>", unsafe_allow_html=True)
+                    st.caption(item["description"])
                     st.markdown(f"<div class='food-price'>₹{item['price']}</div>", unsafe_allow_html=True)
-                    if st.button("Add to Cart", key="add_" + str(index) + "_" + item["name"], use_container_width=True):
+                    st.markdown("<span class='food-availability'>● On the menu</span>", unsafe_allow_html=True)
+                    if st.button("ADD", key="add_" + str(index) + "_" + item["name"]):
                         name = item["name"]
                         st.session_state.cart[name] = st.session_state.cart.get(name, 0) + 1
                         st.success("Added to cart!")
                         st.rerun()
+                with photo_col:
+                    st.markdown(f"<div class='food-photo-slot'>{item['emoji']}</div>", unsafe_allow_html=True)
     
 elif page == "My Cart":
     st.title("My Cart")
