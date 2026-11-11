@@ -390,6 +390,57 @@ div[data-testid="stRadio"].st-key-menu_category_radio div[role="radiogroup"] > l
   word-break:keep-all !important;
   overflow-wrap:normal !important;
 }
+
+/* Force category chip BUTTON TEXT itself to remain horizontal */
+.st-key-category_filter {
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  padding:4px 0 12px !important;
+}
+.st-key-category_filter [data-testid="stHorizontalBlock"] {
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  justify-content:flex-start !important;
+  align-items:center !important;
+  gap:8px !important;
+  width:max-content !important;
+  min-width:100% !important;
+}
+.st-key-category_filter [data-testid="column"] {
+  flex:0 0 auto !important;
+  width:max-content !important;
+  min-width:max-content !important;
+}
+.st-key-category_filter [data-testid="stButton"] {
+  width:max-content !important;
+  min-width:max-content !important;
+}
+.st-key-category_filter [data-testid="stButton"] button {
+  display:inline-flex !important;
+  width:max-content !important;
+  min-width:max-content !important;
+  max-width:none !important;
+  white-space:nowrap !important;
+  word-break:normal !important;
+  overflow-wrap:normal !important;
+  writing-mode:horizontal-tb !important;
+  padding:7px 15px !important;
+  min-height:36px !important;
+  border-radius:20px !important;
+}
+.st-key-category_filter [data-testid="stButton"] button p,
+.st-key-category_filter [data-testid="stButton"] button span {
+  display:inline !important;
+  width:max-content !important;
+  min-width:max-content !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  overflow-wrap:normal !important;
+  writing-mode:horizontal-tb !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -659,14 +710,13 @@ elif page == "Food Menu":
     search = st.text_input("Search food", placeholder="Search by food name...", label_visibility="collapsed")
     categories = ["All", "Pizza", "Burger", "Sandwiches", "Rolls", "Paratha", "Dosa & Idli", "Chinese", "Chaat", "Snacks & Namkeen", "Meals", "Desserts", "Drinks"]
     st.write("**Categories**")
-    selected_category = st.radio(
-        "Choose a food category",
-        categories,
-        horizontal=True,
-        key="menu_category_radio",
-        label_visibility="collapsed"
-    )
-    st.session_state.category = selected_category
+    with st.container(key="category_filter"):
+        category_cols = st.columns(len(categories))
+        for i, category in enumerate(categories):
+            with category_cols[i]:
+                if st.button(category, key="category_chip_" + str(i), use_container_width=False):
+                    st.session_state.category = category
+    selected_category = st.session_state.category
     if selected_category != "All":
         st.caption("Showing: " + selected_category)
     query = search.strip().lower()
