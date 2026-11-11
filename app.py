@@ -687,6 +687,23 @@ menu = [
     {"name":"Sugarcane Juice","category":"Drinks","price":35,"description":"Fresh sugarcane juice","emoji":"🥤"},
 ]
 
+# Real food photography used in the menu (Unsplash image CDN).
+FOOD_IMAGE_BY_CATEGORY = {
+    "Pizza": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=480&q=85",
+    "Burger": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=480&q=85",
+    "Sandwiches": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=480&q=85",
+    "Rolls": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=480&q=85",
+    "Paratha": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=480&q=85",
+    "Dosa & Idli": "https://images.unsplash.com/photo-1589301760014-d929f3979 전?auto=format&fit=crop&w=480&q=85",
+    "Chinese": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=480&q=85",
+    "Chaat": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=480&q=85",
+    "Snacks & Namkeen": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=480&q=85",
+    "Meals": "https://images.unsplash.com/photo-154 meal?auto=format&fit=crop&w=480&q=85",
+    "Desserts": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=480&q=85",
+    "Drinks": "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=480&q=85",
+}
+DEFAULT_FOOD_IMAGE = "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=480&q=85"
+
 plans = {
     "Daily Thali (1 Day)": 120,
     "2-Day Thali Plan": 240,
@@ -837,7 +854,8 @@ elif page == "Food Menu":
                         st.success("Added to cart!")
                         st.rerun()
                 with photo_col:
-                    st.markdown(f"<div class='food-photo-slot'>{item['emoji']}</div>", unsafe_allow_html=True)
+                    food_image = FOOD_IMAGE_BY_CATEGORY.get(item["category"], DEFAULT_FOOD_IMAGE)
+                    st.image(food_image, width=112, use_container_width=True)
     
 elif page == "My Cart":
     st.title("My Cart")
@@ -946,4 +964,4 @@ elif page == "My Orders":
 
 st.divider()
 st.caption("FOOD BUS | Food Ordering & Mess Membership")
-st.caption("Demo Version 3 • Demo prices; actual food photos and persistent database are future updates")
+st.caption("Demo Version 3 • Demo prices; food photographs load from Unsplash; persistent database is a future update")
