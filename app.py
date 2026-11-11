@@ -948,6 +948,8 @@ elif page == "Food Menu":
     with st.container(key="food_grid"):
         for index, item in enumerate(filtered_menu):
             with st.container(border=True):
+                if item["name"] == "Puran Poli":
+                    st.image("assets/food/puran_poli.jpg", use_container_width=True)
                 st.markdown(f"<div class='food-title'>{item['name']}</div>", unsafe_allow_html=True)
                 st.caption(item["description"])
                 st.markdown(f"<div class='food-price'>₹{item['price']}</div>", unsafe_allow_html=True)
