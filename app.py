@@ -480,6 +480,93 @@ div[data-testid="stRadio"].st-key-menu_category_radio div[role="radiogroup"] > l
 .hero-copy h1 { color:#fff4d2 !important; font-size:clamp(1.8rem,4vw,3rem) !important; line-height:1.1 !important; margin:0 0 6px !important; letter-spacing:1.5px !important; }
 .hero-copy p { color:#f6dca0 !important; margin:0 !important; font-size:clamp(.78rem,1.5vw,1rem) !important; }
 @media (max-width:700px) { .madhubani-hero { min-height:170px !important; } .folk-banner { opacity:.72 !important; } .hero-copy { padding:10px 15px !important; } }
+
+/* GLOBAL ROYAL INDIAN HERITAGE THEME — shared by every app page */
+.stApp {
+  background:
+    radial-gradient(ellipse at 8% 12%, rgba(191,139,57,.13), transparent 28%),
+    radial-gradient(ellipse at 92% 18%, rgba(128,47,43,.10), transparent 27%),
+    radial-gradient(ellipse at 50% 100%, rgba(23,96,68,.09), transparent 38%),
+    repeating-linear-gradient(135deg, rgba(183,139,65,.025) 0 2px, transparent 2px 18px),
+    linear-gradient(145deg,#fff8e9 0%,#f5e8d2 48%,#efe0c6 100%) !important;
+  background-attachment:fixed !important;
+}
+[data-testid="stAppViewContainer"] {
+  background:
+    radial-gradient(circle at 0 0, rgba(202,160,83,.10), transparent 24%),
+    radial-gradient(circle at 100% 100%, rgba(117,53,43,.08), transparent 26%) !important;
+}
+.block-container { position:relative; }
+h1,h2,h3,h4 { color:#713b2d !important; }
+p, label, [data-testid="stMarkdownContainer"] { color:#49372d; }
+[data-testid="stHeader"] { background:rgba(255,248,233,.88) !important; }
+[data-testid="stToolbar"] { background:transparent !important; }
+div[data-testid="stVerticalBlockBorderWrapper"] {
+  background:linear-gradient(145deg,rgba(255,253,247,.97),rgba(249,239,219,.96)) !important;
+  border:1px solid #c89b52 !important;
+  border-radius:18px !important;
+  box-shadow:0 7px 22px rgba(91,51,29,.10), inset 0 0 0 3px rgba(226,195,132,.16) !important;
+}
+div[data-testid="stRadio"] {
+  background:linear-gradient(110deg,#fff8e8,#f2e3c8) !important;
+  border:1px solid #c89b52 !important;
+  box-shadow:0 5px 16px rgba(91,51,29,.12) !important;
+}
+div[data-testid="stRadio"] div[role="radiogroup"] label {
+  background:linear-gradient(180deg,#fffdf7,#f4e8d4) !important;
+  border:1px solid #d0ad70 !important;
+  color:#713b2d !important;
+}
+div[data-testid="stRadio"] div[role="radiogroup"] label:has(input:checked) {
+  background:linear-gradient(135deg,#176044,#0e4935) !important;
+  border-color:#d5ad62 !important;
+  color:#fff7e5 !important;
+}
+div.stButton > button {
+  background:linear-gradient(135deg,#176044,#0f4935) !important;
+  color:#fff8e9 !important;
+  border:1px solid #c99a42 !important;
+  box-shadow:0 3px 9px rgba(83,53,25,.12) !important;
+}
+div.stButton > button:hover {
+  background:linear-gradient(135deg,#8d382f,#672b29) !important;
+  border-color:#e2bd73 !important;
+}
+input, textarea, [data-baseweb="select"] > div {
+  background:#fffdf7 !important;
+  border-color:#cba96d !important;
+  border-radius:11px !important;
+}
+[data-testid="stAlert"] {
+  background:linear-gradient(120deg,#fff8e9,#f3e6cf) !important;
+  border:1px solid #d0ad70 !important;
+  border-radius:13px !important;
+}
+hr { border-color:rgba(174,126,54,.45) !important; }
+[data-testid="stCaptionContainer"] { color:#79604a !important; }
+.hero, .madhubani-hero {
+  border:3px double #edcf83 !important;
+  box-shadow:0 9px 26px rgba(65,39,24,.22), inset 0 0 0 5px rgba(255,231,174,.12) !important;
+}
+.ad-strip {
+  background:linear-gradient(90deg,#fff1cf,#f5dfb4,#fff1cf) !important;
+  border-color:#b98437 !important;
+  box-shadow:0 4px 13px rgba(91,51,29,.09) !important;
+}
+[data-testid="stSidebar"] {
+  background:linear-gradient(180deg,#f5e5c9,#ead5b4) !important;
+  border-right:2px solid #c89b52 !important;
+}
+[data-testid="stSidebar"] * { color:#65392c !important; }
+@media (max-width:768px) {
+  .stApp {
+    background:
+      radial-gradient(circle at 0 0, rgba(191,139,57,.12), transparent 30%),
+      linear-gradient(145deg,#fff8e9,#f1e2ca) !important;
+  }
+  div[data-testid="stVerticalBlockBorderWrapper"] { border-radius:14px !important; }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
