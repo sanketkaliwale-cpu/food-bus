@@ -582,6 +582,27 @@ div.stButton > button:hover { background:#24694b !important; }
 div[data-testid="stDataFrame"], div[data-testid="stTable"] { border:1px solid #d8c49b; border-radius:10px; overflow:hidden; }
 hr { border-color:#dfd0ad !important; }
 
+
+/* Small Madhubani accents beyond the hero: quiet corner flourishes on content panels */
+div[data-testid="stVerticalBlockBorderWrapper"] { position:relative; }
+div[data-testid="stVerticalBlockBorderWrapper"]::after {
+  content:"❀";
+  position:absolute; right:10px; bottom:5px;
+  color:#b88b42; font-size:13px; opacity:.55;
+  pointer-events:none;
+}
+.st-key-category_filter [data-testid="stButton"] button,
+.st-key-menu_category_radio [role="radio"] {
+  border:1px solid #d8c49b !important;
+}
+.st-key-category_filter [data-testid="stButton"] button[ kind="primary"],
+.st-key-category_filter [data-testid="stButton"] button:focus-visible {
+  outline:1px solid #b88b42 !important;
+}
+.food-title::after { content:"  ❀"; color:#b88b42; font-size:.72em; }
+.food-price { color:#18563d !important; }
+.ad-strip { border:1px solid #d8c49b !important; background:#fff8e9 !important; }
+
 </style>
 """, unsafe_allow_html=True)
 
