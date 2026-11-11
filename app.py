@@ -694,11 +694,11 @@ FOOD_IMAGE_BY_CATEGORY = {
     "Sandwiches": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=480&q=85",
     "Rolls": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=480&q=85",
     "Paratha": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=480&q=85",
-    "Dosa & Idli": "https://images.unsplash.com/photo-1589301760014-d929f3979 전?auto=format&fit=crop&w=480&q=85",
+    "Dosa & Idli": "https://images.unsplash.com/photo-1589301760014-d929f3979?auto=format&fit=crop&w=480&q=85",
     "Chinese": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=480&q=85",
     "Chaat": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=480&q=85",
     "Snacks & Namkeen": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=480&q=85",
-    "Meals": "https://images.unsplash.com/photo-154 meal?auto=format&fit=crop&w=480&q=85",
+    "Meals": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=480&q=85",
     "Desserts": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=480&q=85",
     "Drinks": "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=480&q=85",
 }
