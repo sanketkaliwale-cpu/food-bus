@@ -20,12 +20,16 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 div[data-testid="stTextInput"] input { border-radius:12px; }
 .hero {
   position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   box-sizing:border-box;
   width:100%;
-  min-height:150px;
+  min-height:168px;
   overflow:visible;
   background:linear-gradient(110deg,#0f5b32 0%,#21834a 55%,#36a765 100%);
-  padding:30px 28px;
+  padding:34px 22px 30px;
   border:3px double #e7c779;
   outline:1px solid rgba(255,255,255,.55);
   outline-offset:-9px;
@@ -49,10 +53,10 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
   width:100%;
   max-width:100%;
   box-sizing:border-box;
-  margin:12px 0 8px 0 !important;
+  margin:8px 0 6px 0 !important;
   padding:0 4px;
-  font-size:clamp(2rem,5vw,3.35rem) !important;
-  line-height:1.2 !important;
+  font-size:clamp(1.9rem,4vw,3rem) !important;
+  line-height:1.15 !important;
   font-weight:900 !important;
   letter-spacing:1.5px;
   white-space:normal !important;
