@@ -567,6 +567,21 @@ hr { border-color:rgba(174,126,54,.45) !important; }
   div[data-testid="stVerticalBlockBorderWrapper"] { border-radius:14px !important; }
 }
 
+
+/* Subtle Madhubani-inspired finish: restrained borders and warm Indian colors */
+.stApp { background:linear-gradient(145deg,#fffaf0 0%,#f8f0df 100%); }
+section[data-testid="stSidebar"] { background:#f5ecd9; border-right:2px solid #d8c49b; }
+section[data-testid="stSidebar"] * { color:#554036; }
+div[data-testid="stVerticalBlockBorderWrapper"], div[data-testid="stExpander"], div[data-testid="stForm"], div[data-testid="stPopover"], div[data-testid="stAlert"], div[data-testid="stMetric"] { border:1px solid #d8c49b !important; border-radius:12px !important; background:#fffdf8 !important; box-shadow:0 2px 8px rgba(86,43,28,.05) !important; }
+div[data-testid="stTabs"] button[role="tab"] { color:#69483a !important; border-radius:8px 8px 0 0 !important; }
+div[data-testid="stTabs"] button[aria-selected="true"] { color:#18563d !important; border-bottom:2px solid #b88b42 !important; }
+div[data-testid="stRadio"] label, div[data-testid="stCheckbox"] label { color:#554036 !important; }
+div[data-testid="stTextInput"] input, div[data-testid="stTextArea"] textarea, div[data-testid="stNumberInput"] input, div[data-testid="stSelectbox"] div[role="combobox"] { border:1px solid #d8c49b !important; border-radius:8px !important; background:#fffdf8 !important; color:#3c3028 !important; }
+div.stButton > button, div.stDownloadButton > button, button[kind="primary"] { background:#18563d !important; color:#fffaf0 !important; border:1px solid #c5a66b !important; border-radius:9px !important; box-shadow:none !important; }
+div.stButton > button:hover { background:#24694b !important; }
+div[data-testid="stDataFrame"], div[data-testid="stTable"] { border:1px solid #d8c49b; border-radius:10px; overflow:hidden; }
+hr { border-color:#dfd0ad !important; }
+
 </style>
 """, unsafe_allow_html=True)
 
