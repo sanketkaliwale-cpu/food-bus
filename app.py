@@ -105,6 +105,49 @@ div[data-testid="stTextInput"] input { border-radius:12px; }
   white-space:nowrap !important;
   font-size:13px !important;
 }
+/* Single-line Zomato-inspired category rail */
+.st-key-menu_category_radio { width:100%; margin:6px 0 16px !important; }
+.st-key-menu_category_radio [role="radiogroup"] {
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:8px !important;
+  width:100% !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  white-space:nowrap !important;
+  padding:5px 2px 12px !important;
+  scrollbar-width:thin;
+}
+.st-key-menu_category_radio [role="radiogroup"] > label {
+  flex:0 0 auto !important;
+  width:auto !important;
+  min-width:max-content !important;
+  white-space:nowrap !important;
+  display:flex !important;
+  align-items:center !important;
+  padding:7px 15px !important;
+  margin:0 !important;
+  border:1px solid #d8e3dc !important;
+  border-radius:22px !important;
+  background:#fff !important;
+  color:#26352c !important;
+  font-size:13px !important;
+  line-height:1.2 !important;
+}
+.st-key-menu_category_radio [role="radiogroup"] > label p {
+  white-space:nowrap !important;
+  margin:0 !important;
+}
+.st-key-menu_category_radio [role="radiogroup"] > label:has(input:checked) {
+  background:#176b3a !important;
+  border-color:#176b3a !important;
+  color:#fff !important;
+}
+.st-key-menu_category_radio [role="radiogroup"] > label:has(input:checked) p {
+  color:#fff !important;
+}
 /* Tighter food cards and image slots */
 .st-key-food_grid div[data-testid="stVerticalBlockBorderWrapper"] {
   padding:9px !important;
