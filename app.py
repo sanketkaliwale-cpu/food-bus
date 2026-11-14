@@ -603,6 +603,25 @@ div[data-testid="stVerticalBlockBorderWrapper"]::after {
 .food-price { color:#18563d !important; }
 .ad-strip { border:1px solid #d8c49b !important; background:#fff8e9 !important; }
 
+/* FOOD MENU CATEGORY BARS: stronger contrast and clearer typography */
+.st-key-category_filter div[data-testid="stButton"] > button,
+.st-key-category_filter div[data-testid="stButton"] > button p,
+.st-key-category_filter div[data-testid="stButton"] > button span {
+  color:#fff8e9 !important;
+  font-family:'Trebuchet MS', Arial, sans-serif !important;
+  font-weight:800 !important;
+  letter-spacing:.15px !important;
+  text-shadow:0 1px 1px rgba(0,0,0,.22) !important;
+}
+.st-key-category_filter div[data-testid="stButton"] > button {
+  background:linear-gradient(135deg,#176044 0%,#0e4935 100%) !important;
+  border:1px solid #c99a42 !important;
+}
+.st-key-category_filter div[data-testid="stButton"] > button:hover {
+  color:#fff8e9 !important;
+  background:linear-gradient(135deg,#8d382f 0%,#672b29 100%) !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
