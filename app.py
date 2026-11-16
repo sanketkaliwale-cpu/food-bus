@@ -979,6 +979,7 @@ elif page == "Food Menu":
                     "Peri Peri Pizza": "Peri_Peri_Pizza.jpg",
                     "Cheese Burst Pizza": "Cheese_Burst_Pizza.jpg",
                     "Pizza Combo": "file_000000001d448211b10cefebb393c4e4.png",
+                    "Veg Burger": "Veg_Burger.jpg",
                 }.get(item["name"])
 
                 if image_path:
@@ -1011,6 +1012,7 @@ elif page == "Food Menu":
                         "Peri_Peri_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Peri_Peri_Pizza.jpg",
                         "Cheese_Burst_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Cheese_Burst_Pizza.jpg",
                         "file_000000001d448211b10cefebb393c4e4.png": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/file_000000001d448211b10cefebb393c4e4.png",
+                        "Veg_Burger.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Veg_Burger.jpg",
                     }
                     with image_col:
                         st.markdown(
