@@ -974,6 +974,10 @@ elif page == "Food Menu":
                     "Cheese Pizza": "Cheese_Pizza.jpg",
                     "Corn Pizza": "Corn_Pizza.jpg",
                     "Paneer Pizza": "Paneer_Pizza.jpg",
+                    "Margherita Pizza": "Margherita_Pizza.jpg",
+                    "Farmhouse Pizza": "Farmhouse_Pizza.jpg",
+                    "Peri Peri Pizza": "Peri_Peri_Pizza.jpg",
+                    "Cheese Burst Pizza": "Cheese_Burst_Pizza.jpg",
                 }.get(item["name"])
 
                 if image_path:
@@ -1001,6 +1005,10 @@ elif page == "Food Menu":
                         "Cheese_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Cheese_Pizza.jpg",
                         "Corn_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Corn_Pizza.jpg",
                         "Paneer_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Paneer_Pizza.jpg",
+                        "Margherita_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Margherita_Pizza.jpg",
+                        "Farmhouse_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Farmhouse_Pizza.jpg",
+                        "Peri_Peri_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Peri_Peri_Pizza.jpg",
+                        "Cheese_Burst_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Cheese_Burst_Pizza.jpg",
                     }
                     with image_col:
                         st.markdown(
