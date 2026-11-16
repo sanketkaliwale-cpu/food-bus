@@ -967,11 +967,14 @@ elif page == "Food Menu":
     with st.container(key="food_grid"):
         for index, item in enumerate(filtered_menu):
             with st.container(border=True):
-                image_path = None
-                if item["name"] == "Puran Poli":
-                    image_path = "assets/food/puran_poli.jpg"
-                elif item["name"] == "Mayo Pizza":
-                    image_path = "assets/food/mayo_pizza.jpg"
+                image_path = {
+                    "Puran Poli": "assets/food/puran_poli.jpg",
+                    "Mayo Pizza": "assets/food/mayo_pizza.jpg",
+                    "Veg Pizza": "assets/food/Veg_Pizza.jpg",
+                    "Cheese Pizza": "assets/food/Cheese_Pizza.jpg",
+                    "Corn Pizza": "assets/food/Corn_Pizza.jpg",
+                    "Paneer Pizza": "assets/food/Paneer_Pizza.jpg",
+                }.get(item["name"])
 
                 if image_path:
                     details_col, image_col = st.columns([4, 1], vertical_alignment="center")
