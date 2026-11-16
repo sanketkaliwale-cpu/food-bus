@@ -994,8 +994,19 @@ elif page == "Food Menu":
                         st.rerun()
 
                 if image_path and image_col:
+                    image_urls = {
+                        "assets/food/puran_poli.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/assets/food/puran_poli.jpg",
+                        "assets/food/mayo_pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/assets/food/mayo_pizza.jpg",
+                        "Veg_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Veg_Pizza.jpg",
+                        "Cheese_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Cheese_Pizza.jpg",
+                        "Corn_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Corn_Pizza.jpg",
+                        "Paneer_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Paneer_Pizza.jpg",
+                    }
                     with image_col:
-                        st.image(image_path, width=120)
+                        st.markdown(
+                            f'<img src="{image_urls[image_path]}" width="120" style="max-width:100%;height:auto;object-fit:contain;border-radius:8px;">',
+                            unsafe_allow_html=True
+                        )
     
 elif page == "My Cart":
     st.title("My Cart")
