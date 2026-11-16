@@ -970,10 +970,10 @@ elif page == "Food Menu":
                 image_path = {
                     "Puran Poli": "assets/food/puran_poli.jpg",
                     "Mayo Pizza": "assets/food/mayo_pizza.jpg",
-                    "Veg Pizza": "assets/food/Veg_Pizza.jpg",
-                    "Cheese Pizza": "assets/food/Cheese_Pizza.jpg",
-                    "Corn Pizza": "assets/food/Corn_Pizza.jpg",
-                    "Paneer Pizza": "assets/food/Paneer_Pizza.jpg",
+                    "Veg Pizza": "Veg_Pizza.jpg",
+                    "Cheese Pizza": "Cheese_Pizza.jpg",
+                    "Corn Pizza": "Corn_Pizza.jpg",
+                    "Paneer Pizza": "Paneer_Pizza.jpg",
                 }.get(item["name"])
 
                 if image_path:
