@@ -967,19 +967,32 @@ elif page == "Food Menu":
     with st.container(key="food_grid"):
         for index, item in enumerate(filtered_menu):
             with st.container(border=True):
+                image_path = None
                 if item["name"] == "Puran Poli":
-                    st.image("assets/food/puran_poli.jpg", width=120)
+                    image_path = "assets/food/puran_poli.jpg"
                 elif item["name"] == "Mayo Pizza":
-                    st.image("assets/food/mayo_pizza.jpg", width=120)
-                st.markdown(f"<div class='food-title'>{item['name']}</div>", unsafe_allow_html=True)
-                st.caption(item["description"])
-                st.markdown(f"<div class='food-price'>₹{item['price']}</div>", unsafe_allow_html=True)
-                st.markdown("<span class='food-availability'>● On the menu</span>", unsafe_allow_html=True)
-                if st.button("ADD", key="add_" + str(index) + "_" + item["name"]):
-                    name = item["name"]
-                    st.session_state.cart[name] = st.session_state.cart.get(name, 0) + 1
-                    st.success("Added to cart!")
-                    st.rerun()
+                    image_path = "assets/food/mayo_pizza.jpg"
+
+                if image_path:
+                    details_col, image_col = st.columns([4, 1], vertical_alignment="center")
+                else:
+                    details_col = st.container()
+                    image_col = None
+
+                with details_col:
+                    st.markdown(f"<div class='food-title'>{item['name']}</div>", unsafe_allow_html=True)
+                    st.caption(item["description"])
+                    st.markdown(f"<div class='food-price'>₹{item['price']}</div>", unsafe_allow_html=True)
+                    st.markdown("<span class='food-availability'>● On the menu</span>", unsafe_allow_html=True)
+                    if st.button("ADD", key="add_" + str(index) + "_" + item["name"]):
+                        name = item["name"]
+                        st.session_state.cart[name] = st.session_state.cart.get(name, 0) + 1
+                        st.success("Added to cart!")
+                        st.rerun()
+
+                if image_path and image_col:
+                    with image_col:
+                        st.image(image_path, width=120)
     
 elif page == "My Cart":
     st.title("My Cart")
