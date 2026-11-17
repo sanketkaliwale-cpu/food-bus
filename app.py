@@ -1,5 +1,6 @@
 import streamlit as st
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 st.set_page_config(page_title="FOOD BUS", page_icon="🚌", layout="wide")
 
@@ -1060,7 +1061,7 @@ elif page == "My Cart":
                 order = {
                     "type": "Food Order", "customer": customer_name,
                     "items": dict(st.session_state.cart), "total": total,
-                    "date": datetime.now().strftime("%d-%m-%Y %I:%M %p")
+                    "date": datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%d-%m-%Y %I:%M %p")
                 }
                 st.session_state.orders.append(order)
                 st.session_state.cart = {}
@@ -1093,7 +1094,7 @@ elif page == "Mess Membership":
             membership = {
                 "type": "Mess Membership", "customer": member_name,
                 "plan": selected_plan, "price": plans[selected_plan],
-                "date": datetime.now().strftime("%d-%m-%Y %I:%M %p")
+                "date": datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%d-%m-%Y %I:%M %p")
             }
             st.session_state.memberships.append(membership)
             st.session_state.orders.append(membership)
