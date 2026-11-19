@@ -981,6 +981,7 @@ elif page == "Food Menu":
                     "Cheese Burst Pizza": "Cheese_Burst_Pizza.jpg",
                     "Pizza Combo": "file_000000001d448211b10cefebb393c4e4.png",
                     "Veg Burger": "Veg_Burger.jpg",
+                    "Palak Paneer": "assets/IMG_20261119_154246.jpg",
                 }.get(item["name"])
 
                 if image_path:
@@ -1014,6 +1015,7 @@ elif page == "Food Menu":
                         "Cheese_Burst_Pizza.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Cheese_Burst_Pizza.jpg",
                         "file_000000001d448211b10cefebb393c4e4.png": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/file_000000001d448211b10cefebb393c4e4.png",
                         "Veg_Burger.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/Veg_Burger.jpg",
+                        "assets/IMG_20261119_154246.jpg": "https://raw.githubusercontent.com/sanketkaliwale-cpu/food-bus/main/assets/IMG_20261119_154246.jpg",
                     }
                     with image_col:
                         st.markdown(
